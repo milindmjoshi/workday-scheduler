@@ -11,8 +11,12 @@ $(function () {
   var saveButtons = $('.saveBtn');
       console.log(saveButtons);
       saveButtons.each(function(element){
-          saveButtons[element].addEventListener('click',()=> alert("save clicked " + 
-          this.parentElement.getAttribute('id').substring(5)));
+          saveButtons[element].addEventListener('click',()=>  {
+            var parentDivId = this.parentElement.getAttribute('id');
+            var timeTextArea = this.parentElement.children[1];
+            console.log(timeTextArea.value);
+            localStorage.setItem(parentDivId,timeTextArea.value);
+        })
       });
   //
   // TODO: Add code to apply the past, present, or future class to each time
@@ -24,7 +28,7 @@ $(function () {
       var currentHour = dayjs().format('H');
       console.log(currentHour);
       // test different Hours
-      //currentHour = 12;
+      currentHour = 13;
 
       // get all elements of class 'row time block'
       var timeblocks = $('.time-block');
@@ -47,9 +51,6 @@ $(function () {
             timeblocks[element].className += 'past';
             console.log(timeblocks[element].className);
           }
-         
-      // Loop through all the time div's and set class correctly
-      // If past 6:00 pm then set all the time div's to gray
       })
        
   //
@@ -57,6 +58,17 @@ $(function () {
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
   //
+  timeblocks.each(function(element){
+    //console.log(timeblocks[element]);
+    var divElement = timeblocks[element];
+    var blockId = (divElement.getAttribute('id'));
+    console.log(blockId);
+    var itemText = localStorage.getItem(blockId);
+    var timeTextArea = divElement.children[1];
+    console.log(timeTextArea);
+    timeTextArea.value = itemText;
+  })
+    
   // TODO: Add code to display the current date in the header of the page.
   var currentDate = $('#currentDay');
    currentDate.text(dayjs().format('dddd, MMMM DD'));
