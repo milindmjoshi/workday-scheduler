@@ -2,7 +2,7 @@
 
 ## Description
 A simple scheduler that lets you plan events for a day
-[!Screenshot](./assets/images/05-demo.png)
+![Screenshot](./assets/images/05-demo.png)
 
 ## Usage
 The scheduler shows the current date at the top, and time blocks for each hour from 9 am to 5 pm. Each time block can have information for what the user plans to do during that time. Time blocks in grey mean that the time has already past. Time blocks in red mean that it is the current block for the current time. Time blocks in
