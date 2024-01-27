@@ -27,6 +27,7 @@ $(function () {
       var timeTextArea = this.parentElement.children[1];
       console.log(timeTextArea.value);
       localStorage.setItem(parentDivId, timeTextArea.value);
+      alert("You entry has been saved");
     })
   });
 
