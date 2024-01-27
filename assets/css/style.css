@@ -62,6 +62,5 @@ textarea {
   width: 40%;
   margin: auto;
   display: block;
-  justify-self: center;
-  margin-bottom: 20px;
+  margin-bottom: 100px;
 }
